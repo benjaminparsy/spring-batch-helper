@@ -38,12 +38,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.batch</groupId>
             <artifactId>spring-batch-test</artifactId>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Third part dependencies -->
@@ -52,11 +52,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

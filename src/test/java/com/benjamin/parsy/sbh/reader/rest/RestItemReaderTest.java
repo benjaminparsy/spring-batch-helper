@@ -1,6 +1,6 @@
 package com.benjamin.parsy.sbh.reader.rest;
 
-import com.benjamin.parsy.sbh.ReaderUtils;
+import com.benjamin.parsy.sbh.test.ReaderUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
