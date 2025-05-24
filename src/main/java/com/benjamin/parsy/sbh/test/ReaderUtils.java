@@ -1,6 +1,7 @@
-package com.benjamin.parsy.sbh;
+package com.benjamin.parsy.sbh.test;
 
 import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.test.StepScopeTestUtils;
@@ -24,14 +25,19 @@ public final class ReaderUtils {
                     ? (ItemStreamReader<I>) itemReader
                     : null;
 
+            ExecutionContext executionContext = stepExecution.getExecutionContext();
+
             if (streamReader != null) {
-                streamReader.open(stepExecution.getExecutionContext());
+                streamReader.open(executionContext);
             }
 
             try {
                 I item;
                 while ((item = itemReader.read()) != null) {
                     items.add(item);
+                    if (streamReader != null) {
+                        streamReader.update(executionContext);
+                    }
                 }
             } finally {
                 if (streamReader != null) {
